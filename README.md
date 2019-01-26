@@ -3,13 +3,14 @@
 <!-- Shields. -->
 <p>
     <!-- NPM version. -->
-    <a href="https://www.npmjs.com/package/@brikcss/@bundles/bundles-tplit"><img alt="NPM version" src="https://img.shields.io/npm/v/@brikcss/@bundles/bundles-tplit.svg?style=flat-square"></a>
+    <a href="https://www.npmjs.com/package/@bundles/bundles-tplit"><img alt="NPM version" src="https://img.shields.io/npm/v/@bundles/bundles-tplit.svg?style=flat-square"></a>
     <!-- NPM downloads/month. -->
-    <a href="https://www.npmjs.com/package/@brikcss/@bundles/bundles-tplit"><img alt="NPM downloads per month" src="https://img.shields.io/npm/dm/@brikcss/@bundles/bundles-tplit.svg?style=flat-square"></a>
+    <a href="https://www.npmjs.com/package/@bundles/bundles-tplit"><img alt="NPM downloads per month" src="https://img.shields.io/npm/dm/@bundles/bundles-tplit.svg?style=flat-square"></a>
     <!-- Travis branch. -->
     <a href="https://github.com/brikcss/bundles-tplit/tree/master"><img alt="Travis branch" src="https://img.shields.io/travis/rust-lang/rust/master.svg?style=flat-square&label=master"></a>
     <!-- Codacy. -->
-    <a href="https://www.codacy.com/app/thezimmee/@bundles/bundles-tplit"><img alt="NPM version" src="https://img.shields.io/codacy/grade/eea4417c437a45b9a07ee254c41c309d/master.svg?style=flat-square"></a>
+    <a href="https://www.codacy.com/app/thezimmee/@bundles/bundles-tplit"><img alt="Codacy code quality" src="https://img.shields.io/codacy/grade/eea4417c437a45b9a07ee254c41c309d/master.svg?style=flat-square"></a>
+    <a href="https://www.codacy.com/app/thezimmee/@bundles/bundles-tplit"><img alt="Codacy code coverage" src="https://img.shields.io/codacy/coverage/eea4417c437a45b9a07ee254c41c309d/master.svg?style=flat-square"></a>
     <!-- Coveralls -->
     <a href='https://coveralls.io/github/brikcss/bundles-tplit?branch=master'><img src='https://img.shields.io/coveralls/github/brikcss/bundles-tplit/master.svg?style=flat-square' alt='Coverage Status' /></a>
     <!-- JS Standard style. -->
@@ -26,7 +27,7 @@
     <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/brikcss/bundles-tplit.svg?style=flat-square" alt="Greenkeeper badge"></a>
 </p>
 
-bundles-tplit is a bundler plugin for [Bundles](https://github.com/brikcss/bundles-core). It uses [tplit](https://github.com/brikcss/tplit) to compile content with the power of native JavaScript templating with template literals.
+This is a bundler plugin for [Bundles](https://github.com/brikcss/bundles-core). It uses [tplit](https://github.com/brikcss/tplit) to compile Bundles input with the power of native JavaScript templating with template literals.
 
 ## Environment support
 
@@ -44,12 +45,12 @@ npm install @bundles/core @bundles/bundles-tplit -D
 
 See [configuring Bundles](https://github.com/brikcss/bundles-core#configuration) for how to configure Bundles and bundlers.
 
-## Configuration
+### Configuration
 
 The following configuration options are available:
 
 - **`options`** _{Object}_ Options passed to [tplit](https://github.com/brikcss/tplit).
-- **`data`** _{Object|Function}_ Data to compile the template with. This will be merged on top of any front matter. An Object is used as is. A Function:
+- **`data`** _{Object|Function}_ Data to compile the template with. This will be merged on top of any existing front matter. An Object is used as is. A Function:
   1. is called on each output file;
   2. returns an Object; and
   3. is passed the `file` and `bundle` Objects, for example:
