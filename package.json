@@ -36,6 +36,6 @@
   "dependencies": {
     "@brikcss/merge": "^1.0.7",
     "@brikcss/tplit": "0.0.4",
-    "@bundles/core": "github:brikcss/bundles-core"
+    "@bundles/core": "0.0.5"
   }
 }
