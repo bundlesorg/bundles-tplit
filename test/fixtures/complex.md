@@ -9,7 +9,6 @@ testing: 123
 
 - SOURCE: ${this.source}
 - NAME: ${this.name}
-- SIZE: ${this.size}
 
 ## Other data
 

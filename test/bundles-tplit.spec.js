@@ -1,7 +1,6 @@
 /* eslint-env jest */
 const bundle = require('@bundles/core')
 const tplit = require('../lib/bundles-tplit.js')
-const fs = require('fs')
 const path = require('path')
 
 test('Compile with simple data', () => {
@@ -77,11 +76,9 @@ test('Compile with complex data and front matter', () => {
       bundlers: [{
         run: tplit,
         data: (file) => {
-          const stats = fs.statSync(file.source.path)
           return {
             source: file.source.path,
-            name: path.basename(file.source.path),
-            size: stats.size
+            name: path.basename(file.source.path)
           }
         }
       }]
@@ -95,10 +92,9 @@ test('Compile with complex data and front matter', () => {
         data: {
           testing: 123,
           source: 'test/fixtures/complex.md',
-          name: 'complex.md',
-          size: 276
+          name: 'complex.md'
         },
-        content: '# Complex Data\n\n## File Metadata\n\n-   SOURCE: test/fixtures/complex.md\n-   NAME: complex.md\n-   SIZE: 276\n\n## Other data\n\nThe variable: 123. I want to include a message:\n\n> I am not from around here.\n\n'
+        content: '# Complex Data\n\n## File Metadata\n\n-   SOURCE: test/fixtures/complex.md\n-   NAME: complex.md\n\n## Other data\n\nThe variable: 123. I want to include a message:\n\n> I am not from around here.\n\n'
       }]
     })
   })
