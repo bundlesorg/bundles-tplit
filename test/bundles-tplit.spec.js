@@ -94,7 +94,7 @@ test('Compile with complex data and front matter', () => {
           source: 'test/fixtures/complex.md',
           name: 'complex.md'
         },
-        content: '# Complex Data\n\n## File Metadata\n\n-   SOURCE: test/fixtures/complex.md\n-   NAME: complex.md\n\n## Other data\n\nThe variable: 123. I want to include a message:\n\n> I am not from around here.\n\n'
+        content: '# Complex Data\n\n## File Metadata\n\n- SOURCE: test/fixtures/complex.md\n- NAME: complex.md\n\n## Other data\n\nThe variable: 123. I want to include a message:\n\n> I am not from around here.\n\n'
       }]
     })
   })
