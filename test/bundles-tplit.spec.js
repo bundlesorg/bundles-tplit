@@ -2,6 +2,8 @@
 const bundle = require('@bundles/core')
 const tplit = require('../lib/bundles-tplit.js')
 const path = require('path')
+const log = require('loglevel')
+log.setLevel('silent')
 
 test('Compile with simple data', () => {
   expect.assertions(2)
@@ -10,13 +12,13 @@ test('Compile with simple data', () => {
       id: 'test1',
       input: ['test/fixtures/simple.md'],
       bundlers: [{
-        run: tplit,
-        data: {
-          name: 'Jonny',
-          age: '16'
-        }
+        run: tplit
       }]
-    }]
+    }],
+    data: {
+      name: 'Jonny',
+      age: '16'
+    }
   }).then(result => {
     expect(result.bundles.length).toBe(1)
     expect(result.bundles[0]).toMatchObject({
@@ -44,12 +46,12 @@ test('Compile with tplit options', () => {
         options: {
           prop: 'props',
           map: (value, key) => key === 'name' && value.toUpperCase()
-        },
-        data: {
-          name: 'Jonny',
-          age: '16'
         }
-      }]
+      }],
+      data: {
+        name: 'Jonny',
+        age: '16'
+      }
     }]
   }).then(result => {
     expect(result.bundles.length).toBe(1)
@@ -73,14 +75,14 @@ test('Compile with complex data and front matter', () => {
     bundles: [{
       id: 'test3',
       input: ['test/fixtures/complex.md'],
-      bundlers: [{
-        run: tplit,
-        data: (file) => {
-          return {
-            source: file.source.path,
-            name: path.basename(file.source.path)
-          }
+      data: (file) => {
+        return {
+          source: file.source.path,
+          name: path.basename(file.source.path)
         }
+      },
+      bundlers: [{
+        run: tplit
       }]
     }]
   }).then(result => {

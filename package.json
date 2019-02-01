@@ -1,6 +1,6 @@
 {
   "name": "@bundles/bundles-tplit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A bundler plugin for Bundles which compiles data with tplit, a native JavaScript string template engine.",
   "keywords": ["brikcss", "bundles", "bundler", "tplit"],
   "license": "MIT",
@@ -34,8 +34,7 @@
     "semantic-release": "^15.13.3"
   },
   "dependencies": {
-    "@brikcss/merge": "^1.0.7",
     "@brikcss/tplit": "0.0.4",
-    "@bundles/core": "0.0.5"
+    "@bundles/core": "^0.2.5"
   }
 }
