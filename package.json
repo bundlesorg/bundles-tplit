@@ -1,6 +1,6 @@
 {
   "name": "@bundles/bundles-tplit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A bundler plugin for Bundles which compiles data with tplit, a native JavaScript string template engine.",
   "keywords": ["brikcss", "bundles", "bundler", "tplit"],
   "license": "MIT",
@@ -13,28 +13,36 @@
   },
   "bugs": "https://github.com/brikcss/bundles-tplit/issues",
   "files": ["lib"],
-  "main": "lib/bundles-tplit.min.js",
+  "main": "lib/bundles-tplit.js",
+  "module": "module/bundles-tplit.js",
   "publishConfig": {
     "tag": "dev",
     "access": "public"
   },
   "scripts": {
     "start": "npm run watch",
+    "pretest": "npm run build",
     "test": "standard *.js && jest --coverage && cat coverage/lcov.info | coveralls && cat coverage/lcov.info | codacy-coverage",
-    "unit": "jest",
-    "watch": "jest --watchAll"
+    "unit": "jest --config=.jestrc.js",
+    "prebuild": "npx rimraf {lib,module}",
+    "build": "rollup --config=.rolluprc.js",
+    "watch": "npx concurrently \"npm run unit -- --watchAll\" \"npm run build -- --watch\""
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.3.1",
     "@brikcss/git-hooks": "^2.1.0",
     "@node-minify/cli": "^4.1.0",
     "@node-minify/uglify-es": "^4.0.5",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.2",
     "jest": "^24.0.0",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-terser": "^4.0.4",
     "semantic-release": "^15.13.3"
   },
   "dependencies": {
-    "@brikcss/tplit": "0.0.4",
-    "@bundles/core": "^0.2.5"
+    "@brikcss/tplit": "^0.0.4",
+    "@bundles/core": "^0.3.1"
   }
 }

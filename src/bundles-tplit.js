@@ -1,8 +1,8 @@
 /*! bundles-tplit.js | @author brikcss <https://github.com/brikcss> | @reference https://github.com/brikcss/bundles-tplit */
 
-const tplit = require('@brikcss/tplit').default
+import tplit from '@brikcss/tplit'
 
-module.exports = (bundle = {}, bundler = {}) => {
+export default (bundle = {}, bundler = {}) => {
   // Set bundler defaults.
   bundler.options = bundler.options || {}
 

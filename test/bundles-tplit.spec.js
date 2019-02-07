@@ -72,18 +72,16 @@ test('Compile with tplit options', () => {
 test('Compile with complex data and front matter', () => {
   expect.assertions(2)
   return bundle({
-    bundles: [{
-      id: 'test3',
-      input: ['test/fixtures/complex.md'],
-      data: (file) => {
-        return {
-          source: file.source.path,
-          name: path.basename(file.source.path)
-        }
-      },
-      bundlers: [{
-        run: tplit
-      }]
+    id: 'test3',
+    input: ['test/fixtures/complex.md'],
+    data: (file) => {
+      return {
+        source: file.source.path,
+        name: path.basename(file.source.path)
+      }
+    },
+    bundlers: [{
+      run: tplit
     }]
   }).then(result => {
     expect(result.bundles.length).toBe(1)
