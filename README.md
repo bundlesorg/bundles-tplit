@@ -50,19 +50,7 @@ See [configuring Bundles](https://github.com/brikcss/bundles-core#configuration)
 The following configuration options are available:
 
 - **`options`** _{Object}_ Options passed to [tplit](https://github.com/brikcss/tplit).
-- **`data`** _{Object|Function}_ Data to compile the template with. This will be merged on top of any existing front matter. An Object is used as is. A Function:
-  1. is called on each output file;
-  2. returns an Object; and
-  3. is passed the `file` and `bundle` Objects, for example:
-     ```js
-     {
-         run: '@bundles/bundles-tplit',
-         data: ( file, bundle ) => {
-             // return data Object
-             return {
-                 source: file.source.path,
-                 id: bundle.id
-             }
-         }
-     }
-     ```
+
+### Data
+
+The tplit bundler utilizes [the `file.data` property](https://github.com/brikcss/bundles-core#the-file-object) to compile your tplit files with data.
